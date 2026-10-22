@@ -1,0 +1,33 @@
+﻿* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    color: #222222;
+    background-color: #ffffff;
+}
+h1 {
+    color: #222222;
+    font-size: 32px;
+}
+header,
+main,
+footer {
+    padding: 20px;
+}
+header {
+    background-color: #f2f2f2;
+}
+footer {
+    background-color: #47474f;
+    color: #ffffff;
+    text-align: center;
+}
+.site-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 25%;
+}
