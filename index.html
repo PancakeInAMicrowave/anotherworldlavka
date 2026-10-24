@@ -4,7 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Лавка другого мира</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/main.js" defer></script>
 </head>
 <body>
     <header>
@@ -45,21 +46,25 @@
                 <h3>Иньектор ETG-C</h3>
                 <p>Медицинский предмет из норвинского района Таркова.</p>
                 <p>Цена: 600 руб</p>
+                <button class="button product-card__button" type="button" data-product="etgc">Оформить заказ</button>
             </article>
             <article class="product-card">
                 <h3>Ружье Арисака Тип 38</h3>
-                <p>Винтовка найденная в снегу после чьего-то последнего путешествия. (Нефункциональна)</p>
+                <p>Винтовка найденная в снегу после чьего-то последнего путешествия.</p>
                 <p>Цена: 2390 руб</p>
+                <button class="button product-card__button" type="button" data-product="type38">Оформить заказ</button>
             </article>
             <article class="product-card">
                 <h3>Значок …see you to_no_more</h3>
                 <p>Металлический значок 37мм</p>
                 <p>Цена: 100 руб</p>
+                <button class="button product-card__button" type="button" data-product="badge1">Оформить заказ</button>
             </article>
             <article class="product-card">
                 <h3>Футболка Код</h3>
                 <p>На самом деле это не ваш код. ЗАТО футболка из 100% хлопка.</p>
                 <p>Цена: 1200 руб</p>
+                <button class="button product-card__button" type="button" data-product="shirt1">Оформить заказ</button>
             </article>
         </section>
     <aside class="aside-info">
@@ -70,8 +75,68 @@
     </aside>
     </main>
      <footer id="contacts">
-         <p>&copy; 2026 Лавка другого мира. Все права не защищены.</p>
+         <p>&copy; 2026 Лавка другого мира. Все права защищены.</p>
          <p>Почта: maurus2015@yandex.ru</p>
      </footer>
+    <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+        <h2 id="order-dialog-title">Оформление заказа</h2>
+        <form class="order-form" id="order-form" action="#" method="post" novalidate>
+            <input id="selected-product" name="selected-product" type="hidden">
+
+            <div class="form-field">
+                <label for="order-name">Имя</label>
+                <input id="order-name"
+                       name="name"
+                       type="text"
+                       placeholder="Введите ваше имя"
+                       minlength="2"
+                       autocomplete="given-name" />
+            </div>
+            <div class="form-field">
+                <label for="order-email">E-mail</label>
+                <input id="order-email"
+                       name="email"
+                       type="email"
+                       placeholder="example@mail.ru"
+                       autocomplete="email"
+                       required />
+            </div>
+            <div class="form-field">
+                <label for="order-phone">Телефон</label>
+                <input id="order-phone"
+                       name="phone"
+                       type="tel"
+                       inputmode="tel"
+                       placeholder="+7(900) 000-00-00"
+                       pattern="^\+7 ?\(?\d{3}\)? ?\d{3}-?\d{2}-?\d{2}$"
+                       required />
+            </div>
+            <div class="form-field">
+                <label for="order-comment">Комментарий</label>
+                <textarea
+                          id="order-comment"
+                          name="comment"
+                          rows="4"
+                          placeholder="Укажите дополнительную информацию"
+                          ></textarea>
+            </div>
+            <div class="form-field form-field--checkbox">
+                <label>
+                    <input
+                           id="order-agreement"
+                           name="agreement"
+                           type="checkbox"
+                           required />Я согласен-(а) на обработку данных
+                </label>
+            </div>
+            <div class="form-actions">
+                <button type="button" id="close-order-dialog">Закрыть</button>
+                <button type="submit">Отправить заявку</button>
+            </div>
+        </form>
+    </dialog>
+    <p class="success-message" id="success-message" hidden>
+        Форма успешно отправлена!
+    </p>
 </body>
 </html>
