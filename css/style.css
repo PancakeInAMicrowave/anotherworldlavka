@@ -29,6 +29,7 @@
     --radius-button: 6px;
     --container-width: 1100px;
     --space-md: 16px;
+    --space-lg: 32px;
 }
 
 /*База*/
@@ -145,7 +146,9 @@ button {
     padding: 16px;
     border: 1px solid var(--color-product-card-border);
     border-radius: 8px;
-    background-color: var(--color-product-card-background)
+    background-color: var(--color-product-card-background);
+    display: flex;
+    flex-direction: column;
 }
 
     .product-card:hover {
@@ -155,6 +158,17 @@ button {
     .product-card h3 {
         margin-top: 0;
     }
+
+    .product-card .button {
+        margin-top: auto;
+        align-self: flex-start;
+    }
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+}
 
 .button {
     display: inline-block;
@@ -176,6 +190,48 @@ button {
     padding: 16px;
     border-left: 4px solid var(--color-aside-info-border);
     background-color: var(--color-aside-info-background);
+}
+
+/*каталог*/
+.catalog-layout {
+    max-width: var(--container-width);
+    margin: 0 auto var(--space-lg);
+    display: grid;
+    grid-template-columns: 255px 1fr;
+    grid-template-areas: "filters products";
+    gap: var(--space-lg);
+}
+
+.catalog-filters {
+    grid-area: filters;
+    padding: var(--space-md);
+    border: 1px solid 2px;
+    border-radius: var(--radius-button);
+    background-color: var(--color-surface);
+}
+.catalog-products {
+    grid-area: products;
+}
+/*фильтры*/
+.filters-form fieldset {
+    margin: 0;
+    padding: var(--space-md);
+    border: 1px solid var(--color-product-card-border);
+    border-radius: var(--radius-button);
+}
+.filters-form legend {
+    font-weight: 700;
+}
+.filters-form label {
+    display: block;
+    margin-bottom: var(--space-md);
+}
+.filters-form input[type="number"] {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--color-product-card-border);
+    border-radius: var(--radius-button);
+    font: inherit;
 }
 /*Модальное окно*/
 .order-dialog {
