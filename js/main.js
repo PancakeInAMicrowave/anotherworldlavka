@@ -2,7 +2,7 @@ const orderDialog = document.getElementById('order-dialog');
 const orderButtons = document.querySelectorAll('.product-card__button');
 const closeDialogButton = document.getElementById('close-order-dialog');
 const selectedProductInput = document.getElementById('selected-product');
-orderButtons.forEach((button) => {
+orderButtons?.forEach((button) => {
 	button.addEventListener('click', () => {
 		const productName = button.dataset.product;
 		selectedProductInput.value = productName;
@@ -10,7 +10,7 @@ orderButtons.forEach((button) => {
 	});
 });
 
-closeDialogButton.addEventListener('click',() => {
+closeDialogButton?.addEventListener('click',() => {
 	orderDialog.close();
 });
 
