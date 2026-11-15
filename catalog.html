@@ -11,17 +11,28 @@
     <script src="js/main.js" defer></script>
 </head>
 <body>
-    <header>
-        <div class="site-header">
-            <a class="site-logo" href="index.html">Лавка другого мира</a>
-
+    <header class="site-header">
+        <div class="site-header__inner">
+            <span class="site-header__logo">Лавка другого мира</span>
             <nav class="site-nav" aria-label="Навигация">
                 <ul class="site-nav__list">
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="catalog.html">Товары</a></li>
-                    <li><a href="index.html#advantages">Преимущества</a></li>
-                    <li><a href="contacts.html">Контакты</a></li>
-                    <li><a href="#faq">ЧАВО</a></li>
+                    <li class="site-nav__item">
+                        <a class="site-nav__link site-nav__link--active" href="index.html">
+                            Главная
+                        </a>
+                    </li>
+                    <li class="site-nav__item">
+                        <a class="site-nav__link" href="catalog.html">Товары</a>
+                    </li>
+                    <li class="site-nav__item">
+                        <a class="site-nav__link" href="#advantages">Преимущества</a>
+                    </li>
+                    <li class="site-nav__item">
+                        <a class="site-nav__link" href="contacts.html">Контакты</a>
+                    </li>
+                    <li class="site-nav__item">
+                        <a class="site-nav__link" href="#faq">ЧАВО</a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -29,9 +40,12 @@
 
     <main>
         <nav class="breadcrumbs" aria-label="Хлебные крошки">
-            <a href="index.html">Главная</a>
-            <span>Каталог</span>
+            <a class="breadcrumbs__link" href="index.html">Главная</a>
+            <span class="breadcrumbs__current">Каталог</span>
         </nav>
+        <p class="success-message" id="success-message" hidden>
+            Заказ оформлен! Ожидайте звонка или письма.
+        </p>
 
         <section class="section">
             <h1>Каталог товаров</h1>
@@ -72,33 +86,106 @@
             <section class="catalog-products">
                 <h2>Список товаров</h2>
                 <div class="products-grid">
-                    <article class="product-card">
-                        <h3>Иньектор ETG-C</h3>
-                        <p>Медицинский предмет из норвинского района Таркова.</p>
-                        <p>Цена: 600 руб</p>
-                        <button class="button product-card__button" type="button" data-product="etgc">Оформить заказ</button>
+                    <article class="product-card product-card--featured">
+                        <h3 class="product-card__title">Иньектор ETG-C</h3>
+                        <p class="product-card__description">Медицинский предмет из норвинского района Таркова.</p>
+                        <p class="product-card__price">Цена: 600 руб</p>
+                        <button class="button product-card__button"
+                                type="button"
+                                data-product="etgc">
+                            Оформить заказ
+                        </button>
                     </article>
                     <article class="product-card">
-                        <h3>Ружье Арисака Тип 38</h3>
-                        <p>Винтовка найденная в снегу после чьего-то последнего путешествия.</p>
-                        <p>Цена: 2390 руб</p>
-                        <button class="button product-card__button" type="button" data-product="type38">Оформить заказ</button>
+                        <h3 class="product-card__title">Ружье Арисака Тип 38</h3>
+                        <p class="product-card__description">Винтовка найденная в снегу после чьего-то последнего путешествия.</p>
+                        <p class="product-card__price">Цена: 2390 руб</p>
+                        <button class="button product-card__button"
+                                type="button"
+                                data-product="type38">
+                            Оформить заказ
+                        </button>
                     </article>
                     <article class="product-card">
-                        <h3>Значок …see you to_no_more</h3>
-                        <p>Металлический значок 37мм</p>
-                        <p>Цена: 100 руб</p>
-                        <button class="button product-card__button" type="button" data-product="badge1">Оформить заказ</button>
+                        <h3 class="product-card__title">Значок …see you to_no_more</h3>
+                        <p class="product-card__description">Металлический значок 37мм</p>
+                        <p class="product-card__price">Цена: 100 руб</p>
+                        <button class="button product-card__button"
+                                type="button"
+                                data-product="badge1">
+                            Оформить заказ
+                        </button>
                     </article>
                     <article class="product-card">
-                        <h3>Футболка Код</h3>
-                        <p>На самом деле это не ваш код. ЗАТО футболка из 100% хлопка.</p>
-                        <p>Цена: 1200 руб</p>
-                        <button class="button product-card__button" type="button" data-product="shirt1">Оформить заказ</button>
+                        <h3 class="product-card__title">Футболка Код</h3>
+                        <p class="product-card__description">На самом деле это не ваш код. ЗАТО футболка из 100% хлопка.</p>
+                        <p class="product-card__price">Цена: 1200 руб</p>
+                        <button class="button product-card__button"
+                                type="button"
+                                data-product="shirt1">
+                            Оформить заказ
+                        </button>
                     </article>
                 </div>
             </section>
         </section>
+        <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+            <h2 id="order-dialog-title">Оформление заказа</h2>
+            <form class="order-form" id="order-form" action="#" method="post" novalidate>
+                <input id="selected-product" name="selected-product" type="hidden">
+                <div class="order-form__field">
+                    <label class="order-form__label" for="order-name">Имя</label>
+                    <input class="order-form__input"
+                           id="order-name"
+                           name="name"
+                           type="text"
+                           placeholder="Введите ваше имя"
+                           minlength="2"
+                           autocomplete="given-name" />
+                </div>
+                <div class="order-form__field">
+                    <label class="order-form__label" for="order-email">E-mail</label>
+                    <input class="order-form__input"
+                           id="order-email"
+                           name="email"
+                           type="email"
+                           placeholder="example@mail.ru"
+                           autocomplete="email" />
+                </div>
+                <div class="order-form__field">
+                    <label class="order-form__label" for="order-phone">Телефон</label>
+                    <input class="order-form__input"
+                           id="order-phone"
+                           name="phone"
+                           type="tel"
+                           inputmode="tel"
+                           placeholder="+7(900) 000-00-00"
+                           pattern="^\+7 ?\(?\d{3}\)? ?\d{3}-?\d{2}-?\d{2}$" />
+                </div>
+                <div class="order-form__field">
+                    <label class="order-form__label" for="order-comment">Комментарий</label>
+                    <textarea class="order-form__textarea"
+                              id="order-comment"
+                              name="comment"
+                              rows="4"
+                              placeholder="Укажите дополнительную информацию"></textarea>
+                </div>
+                <div class="order-form__field form-field--checkbox">
+                    <label>
+                        <input class="order-form__checkbox"
+                               id="order-agreement"
+                               name="agreement"
+                               type="checkbox"
+                               required />Я согласен-(а) на обработку данных
+                    </label>
+                </div>
+                <div class="order-form__actions">
+                    <button class="button button--secondary" type="button" id="close-order-dialog">Закрыть</button>
+                    <button class="button button--primary" type="submit">Отправить заявку</button>
+                </div>
+            </form>
+        </dialog>
+
     </main>
 
     <footer id="contacts">

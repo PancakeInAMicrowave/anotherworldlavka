@@ -11,17 +11,28 @@
     <script src="js/main.js" defer></script>
 </head>
 <body>
-    <header>
-        <div class="site-header">
-            <a class="site-olog" href="index.html">Лавка другого мира</a>
-
+    <header class="site-header">
+        <div class="site-header__inner">
+            <span class="site-header__logo">Лавка другого мира</span>
             <nav class="site-nav" aria-label="Навигация">
                 <ul class="site-nav__list">
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="catalog.html">Товары</a></li>
-                    <li><a href="index.html#advantages">Преимущества</a></li>
-                    <li><a href="contacts.html">Контакты</a></li>
-                    <li><a href="#faq">ЧАВО</a></li>
+                    <li class="site-nav__item">
+                        <a class="site-nav__link site-nav__link--active" href="index.html">
+                            Главная
+                        </a>
+                    </li>
+                    <li class="site-nav__item">
+                        <a class="site-nav__link" href="catalog.html">Товары</a>
+                    </li>
+                    <li class="site-nav__item">
+                        <a class="site-nav__link" href="#advantages">Преимущества</a>
+                    </li>
+                    <li class="site-nav__item">
+                        <a class="site-nav__link" href="contacts.html">Контакты</a>
+                    </li>
+                    <li class="site-nav__item">
+                        <a class="site-nav__link" href="#faq">ЧАВО</a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -29,8 +40,8 @@
 
     <main>
         <nav class="breadcrumbs" aria-label="Хлебные крошки">
-            <a href="index.html">Главная</a>
-            <span>Контакты</span>
+            <a class="breadcrumbs__link" href="index.html">Главная</a>
+            <span class="breadcrumbs__current">Контакты</span>
         </nav>
 
         <section class="section">
