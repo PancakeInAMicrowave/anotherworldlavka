@@ -11,6 +11,9 @@
     --color-hero-background: #eef5ff;
     --color-product-card-background: #fffffe;
     --color-product-card-border: #dddddd;
+    --color-review-card-border: #16161d;
+    --color-review-card-product: #47474f;
+    --color-review-card-rating: #ebad19;
     --color-primary-hover: #003f86;
     --color-aside-info-background: #f7f7f7;
     --color-modal-backdrop: rgba(0,0,0,0.5);
@@ -143,7 +146,58 @@ button {
     .section h2 {
         margin-top: 0;
     }
+/*карточки отзывов*/
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
 
+.review-card {
+    border: 3px ridge var(--color-review-card-border);
+    border-radius: 4px;
+    padding: 18px;
+    background: rgb(91, 91, 79, 0.1);
+}
+
+.review-card__image {
+    width: 100%;
+    overflow: hidden;
+    margin-inline: auto;
+}
+
+    .review-card__image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+    }
+
+.review-card__product {
+    font-size: 14px;
+    color: var(--color-review-card-product);
+    font-weight: 550;
+    text-align: center;
+    margin-top: 2px;
+}
+
+.review-card__title {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.review-card__rating {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--color-review-card-rating);
+    font-size: 30px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+/*Карточки товаров*/
 .product-card {
     margin-bottom: var(--space-md);
     padding: var(--space-md);
@@ -167,7 +221,7 @@ button {
     }
 
     .product-card .button {
-        margin-top: auto;
+        margin-top: 0;
         align-self: flex-start;
     }
 
@@ -189,6 +243,8 @@ button {
 
     .product-card__price {
         font-weight: 500;
+        margin-top: auto;
+        margin-bottom: 10px;
     }
 
 .products-grid {
@@ -341,7 +397,7 @@ button {
     outline: 5px solid var(--color-accessibility-focus);
     outline-offset: 3px;
 }
-
+/*хлеб хлеб*/
 .breadcrumbs {
     max-width: var(--container-width);
     margin: 0 auto var(--space-md);
@@ -368,4 +424,9 @@ button {
 :target {
     outline: 2px dashed var(--color-primary);
     outline-offset: 4px;
+}
+/*faq*/
+.faq-answer {
+    margin-bottom: 34px;
+    font-size: 18px;
 }
