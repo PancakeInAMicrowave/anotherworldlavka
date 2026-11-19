@@ -19,6 +19,37 @@
 - базовую навигацию;
 - оформление основных блоков страницы;
 
+## Структура проекта
+```
+- css
+- - style.css
+- - old.css
+- images
+- - reviews
+- - - 1.png
+- - - 2.png
+- - - 3.png
+- - favicon.png
+- js
+- - main.js
+- catalog.html
+- contacts.html
+- faq.html
+- index.html
+- reviews.html
+- README.md
+- .gitattributes
+- .gitignore
+```
+
+## Просмотр проекта
+Для просмотра проекта перейдите в GitHub Pages деплоймент сайта: https://pancakeinamicrowave.github.io/anotherworldlavka/
+
+Обратите внимание, что GitHub Pages плохо загружает изображения. Для того, чтобы изображения работали на сайте, скачайте проект и откройте `index.html`.
+
+## Используемые технологии
+HTML, CSS, JavaScript
+
 ## История выполнения
 
 - Практическая работа 1: создан Git-репозиторий, опубликован проект на GitHub Pages.
