@@ -138,6 +138,10 @@ button {
     border-radius: 12px;
 }
 
+.hero__title {
+    margin-top: 0;
+}
+
 .section {
     max-width: var(--container-width);
     margin: 0 auto 32px;
@@ -179,6 +183,8 @@ button {
     font-weight: 550;
     text-align: center;
     margin-top: 2px;
+    text-decoration: none;
+    display: block;
 }
 
 .review-card__title {
@@ -246,6 +252,13 @@ button {
         margin-top: auto;
         margin-bottom: 10px;
     }
+
+.product-grid__badge {
+    position: relative;
+    top: -70px;
+    right: 255px;
+    font-weight: 550;
+}
 
 .products-grid {
     display: grid;
@@ -322,6 +335,7 @@ button {
     padding: 24px;
     border: none;
     border-radius: 12px;
+    z-index: 999;
 }
 
     .order-dialog::backdrop {
